@@ -22,6 +22,7 @@
 package com.favouriteless.redstonetweaks.core.init;
 
 import com.favouriteless.redstonetweaks.common.blocks.*;
+import com.favouriteless.redstonetweaks.common.blocks.ModPressurePlateBlock.Sensitivity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -37,9 +38,9 @@ public class RedstoneTweaksBlocks {
     public static final RegistryObject<Block> ANDESITE_BUTTON = BLOCKS.register("andesite_button", () -> new ModButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F)));
     public static final RegistryObject<Block> DIORITE_BUTTON = BLOCKS.register("diorite_button", () -> new ModButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F)));
     public static final RegistryObject<Block> GRANITE_BUTTON = BLOCKS.register("granite_button", () -> new ModButtonBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().strength(0.5F)));
-    public static final RegistryObject<Block> ANDESITE_PRESSURE_PLATE = BLOCKS.register("andesite_pressure_plate", () -> new ModPressurePlateBlock(ModPressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().noCollission().strength(0.5F)));
-    public static final RegistryObject<Block> DIORITE_PRESSURE_PLATE = BLOCKS.register("diorite_pressure_plate", () -> new ModPressurePlateBlock(ModPressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().noCollission().strength(0.5F)));
-    public static final RegistryObject<Block> GRANITE_PRESSURE_PLATE = BLOCKS.register("granite_pressure_plate", () -> new ModPressurePlateBlock(ModPressurePlateBlock.Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().noCollission().strength(0.5F)));
+    public static final RegistryObject<Block> ANDESITE_PRESSURE_PLATE = BLOCKS.register("andesite_pressure_plate", () -> new ModPressurePlateBlock(Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().noCollission().strength(0.5F)));
+    public static final RegistryObject<Block> DIORITE_PRESSURE_PLATE = BLOCKS.register("diorite_pressure_plate", () -> new ModPressurePlateBlock(Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().noCollission().strength(0.5F)));
+    public static final RegistryObject<Block> GRANITE_PRESSURE_PLATE = BLOCKS.register("granite_pressure_plate", () -> new ModPressurePlateBlock(Sensitivity.MOBS, BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().noCollission().strength(0.5F)));
     public static final RegistryObject<Block> TORCH_LEVER = BLOCKS.register("torch_lever", () -> new TorchLeverBlock(BlockBehaviour.Properties.of(Material.DECORATION).noCollission().instabreak().lightLevel((state) -> 14).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> BOOKSHELF_SWITCH = BLOCKS.register("bookshelf_switch", () -> new BookshelfSwitchBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(1.5F).sound(SoundType.WOOD).noOcclusion()));
 

@@ -52,6 +52,7 @@ public class ModPressurePlateBlock extends BasePressurePlateBlock {
         this.sensitivity = sensitivity;
     }
 
+    @Override
     protected int getSignalForState(BlockState state) {
         return state.getValue(POWERED) ? 15 : 0;
     }
@@ -60,15 +61,17 @@ public class ModPressurePlateBlock extends BasePressurePlateBlock {
         return state.setValue(POWERED, Boolean.valueOf(rsOut > 0));
     }
 
+    @Override
     protected void playOnSound(LevelAccessor world, BlockPos pos) {
         if (this.material != Material.WOOD && this.material != Material.NETHER_WOOD) {
-            world.playSound((Player)null, pos, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 0.3F, 0.6F);
+            world.playSound(null, pos, SoundEvents.STONE_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 0.3F, 0.6F);
         } else {
-            world.playSound((Player)null, pos, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 0.3F, 0.8F);
+            world.playSound(null, pos, SoundEvents.WOODEN_PRESSURE_PLATE_CLICK_ON, SoundSource.BLOCKS, 0.3F, 0.8F);
         }
 
     }
 
+    @Override
     protected void playOffSound(LevelAccessor world, BlockPos pos) {
         if (this.material != Material.WOOD && this.material != Material.NETHER_WOOD) {
             world.playSound(null, pos, SoundEvents.STONE_PRESSURE_PLATE_CLICK_OFF, SoundSource.BLOCKS, 0.3F, 0.5F);
@@ -78,15 +81,16 @@ public class ModPressurePlateBlock extends BasePressurePlateBlock {
 
     }
 
-    protected int getSignalStrength(Level p_55264_, BlockPos pos) {
+    @Override
+    protected int getSignalStrength(Level level, BlockPos pos) {
         AABB aabb = TOUCH_AABB.move(pos);
         List<? extends Entity> list;
         switch(this.sensitivity) {
             case EVERYTHING:
-                list = p_55264_.getEntities((Entity)null, aabb);
+                list = level.getEntities(null, aabb);
                 break;
             case MOBS:
-                list = p_55264_.getEntitiesOfClass(LivingEntity.class, aabb);
+                list = level.getEntitiesOfClass(LivingEntity.class, aabb);
                 break;
             default:
                 return 0;
@@ -103,8 +107,9 @@ public class ModPressurePlateBlock extends BasePressurePlateBlock {
         return 0;
     }
 
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_55262_) {
-        p_55262_.add(POWERED);
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(POWERED);
     }
 
     public enum Sensitivity {

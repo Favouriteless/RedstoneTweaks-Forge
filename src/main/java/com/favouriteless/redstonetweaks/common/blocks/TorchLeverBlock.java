@@ -21,7 +21,6 @@
 
 package com.favouriteless.redstonetweaks.common.blocks;
 
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.DustParticleOptions;
