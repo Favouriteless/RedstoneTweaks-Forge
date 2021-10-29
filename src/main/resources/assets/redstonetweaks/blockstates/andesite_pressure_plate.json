@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "redstonetweaks:block/andesite_pressure_plate"
+    },
+    "powered=true": {
+      "model": "redstonetweaks:block/andesite_pressure_plate_down"
+    }
+  }
+}
